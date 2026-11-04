@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trazabilidad de Medicamentos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <header class="encabezado">
+        <div class="logo">
+            <span class="icono">✚</span>
+            <div>
+                <h1>MedicTrace</h1>
+                <p>Sistema de trazabilidad de medicamentos</p>
+            </div>
+        </div>
+
+        <span class="estado" id="estadoConexion">
+            ● Pendiente de conexión
+        </span>
+    </header>
+
+    <main class="contenedor">
+
+        <section class="bienvenida">
+            <h2>Gestión y verificación de medicamentos</h2>
+            <p>
+                Registra y consulta medicamentos utilizando
+                tecnología blockchain para mantener la integridad
+                de la información.
+            </p>
+        </section>
+
+        <section class="tarjeta conexion">
+            <h3>Conexión con Blockchain</h3>
+            <p>Dirección del contrato inteligente:</p>
+            <input
+                type="text"
+                id="direccionContrato"
+                value="0x7c42E097999B3FAd3E6A4b52786d308A72b95ab4"
+                readonly
+            >
+            <button id="btnConectar" type="button">
+                Conectar con Blockchain
+            </button>
+            <p id="mensajeConexion" class="mensaje"></p>
+        </section>
+
+        <div class="columnas">
+
+            <section class="tarjeta">
+                <h3>Registrar medicamento</h3>
+                <p class="descripcion">
+                    Ingresa los datos del medicamento.
+                </p>
+
+                <form id="formRegistro">
+
+                    <label for="codigoCaja">Código de caja</label>
+                    <input
+                        type="text"
+                        id="codigoCaja"
+                        placeholder="Ej. MED002"
+                        required
+                    >
+
+                    <label for="numeroLote">Número de lote</label>
+                    <input
+                        type="text"
+                        id="numeroLote"
+                        placeholder="Ej. LOTE2026B"
+                        required
+                    >
+
+                    <label for="fechaVencimiento">
+                        Fecha de vencimiento
+                    </label>
+                    <input
+                        type="date"
+                        id="fechaVencimiento"
+                        required
+                    >
+
+                    <button type="submit">
+                        Registrar medicamento
+                    </button>
+
+                </form>
+
+                <p id="mensajeRegistro" class="mensaje"></p>
+            </section>
+
+            <section class="tarjeta">
+                <h3>Consultar medicamento</h3>
+                <p class="descripcion">
+                    Verifica la información mediante el código de caja.
+                </p>
+
+                <form id="formConsulta">
+
+                    <label for="codigoConsulta">
+                        Código de caja
+                    </label>
+
+                    <input
+                        type="text"
+                        id="codigoConsulta"
+                        placeholder="Ej. MED001"
+                        required
+                    >
+
+                    <button type="submit">
+                        Consultar medicamento
+                    </button>
+
+                </form>
+
+                <div id="resultadoConsulta" class="resultado">
+                    <p>Los resultados aparecerán aquí.</p>
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <p>
+            Proyecto académico | Trazabilidad de Medicamentos
+            mediante Blockchain
+        </p>
+    </footer>
+
+   <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.5/dist/ethers.umd.min.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
